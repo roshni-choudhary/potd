@@ -1,12 +1,13 @@
 //1390. Four Divisors
 #include <vector>
+#include <algorithm>
 #include <cmath>
 using namespace std;
 class Solution {
 public:
 int maxn;
     int sumFourDivisors(vector<int>& nums) {
-      \//  maxn=*max_element(nums.begin(),nums.end());
+        maxn=*max_element(nums.begin(),nums.end());
         vector<bool> isprime(maxn+1,true);
         isprime[0]=false; isprime[1]=false;
         int i,j,ans=0;
