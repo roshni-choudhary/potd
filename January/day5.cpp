@@ -22,3 +22,5 @@ public:
         return sum-2*mine;
     }
 };
+//tc O(n²)
+//sc O(1)
