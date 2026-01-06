@@ -1,17 +1,15 @@
 //1161. Maximum Level Sum of a Binary Tree
 #include<bits/stdc++.h>
 using namespace std;
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+//Definition for a binary tree node.
+ struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ };
 class Solution {
 public:
  vector<long long> lsum;
@@ -53,3 +51,30 @@ public:
 // So:
 // skewed tree → O(n)
 // balanced tree → O(log n)
+
+//bfs approach
+ int maxLevelSum(TreeNode* root) {
+       queue<TreeNode*> q;
+       q.push(root);
+       int level=1,ans=1,maxsum=INT_MIN;
+       while(!q.empty())
+       {
+       int sz=q.size();
+       int csum=0;
+       //traverse one level
+       for(int i=0;i<sz;i++){
+       TreeNode* node=q.front();
+       q.pop();
+       csum+=node->val;
+       if(node->left) q.push(node->left);
+       if(node->right) q.push(node->right);
+       }
+       if(csum>maxsum)
+       {
+        maxsum=csum;
+        ans=level;
+       }
+       level++;
+       }
+       return ans;
+    }
