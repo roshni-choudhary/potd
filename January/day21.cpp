@@ -1,4 +1,4 @@
-//3314. Construct the Minimum Bitwise Array I
+//3314. Construct the Minimum Bitwise Array II
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
