@@ -13,11 +13,8 @@ public:
                     res = ch;
                     flag = !flag;
                 }
-            } else {
-                if (ch > target && ch < res) res = ch;
-            }
+            } 
         }
-
         return res;
     }
 };
