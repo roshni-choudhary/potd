@@ -7,14 +7,13 @@ public:
         char res = letters[0];
         bool flag = false;
 
-        for (char ch : letters) {
-            if (!flag) {
-                if (ch > target) {
-                    res = ch;
-                    flag = !flag;
-                }
-            } 
-        }
+        for (int i = 0; i < letters.size(); i++) {
+    char ch = letters[i];
+    if (!flag && ch > target) {
+        res = ch;
+        flag = true;
+    }
+}
         return res;
     }
 };
