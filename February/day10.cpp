@@ -1,1 +1,22 @@
-//
+//3719. Longest Balanced Subarray I
+#include<bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+    int longestBalanced(vector<int>& nums) {
+        int n=nums.size();
+        int i,j,ans=0;
+        for(i=0;i<n;i++)
+        {
+            map<int,int> even,odd;
+            for(j=i;j<n;j++)
+            {
+             if(nums[j]%2==0) even[nums[j]]++;
+             else odd[nums[j]]++;
+             if(even.size()==odd.size())
+             ans=max(ans,j-i+1);
+            }
+        }
+        return ans;
+    }
+};
